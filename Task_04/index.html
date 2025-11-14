@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prakhar Gupta — Professional Portfolio</title>
+  <meta name="description" content="Prakhar Gupta — Web Developer. Portfolio with projects, contact, a persistent To‑Do app and product listing with filters." />
+ <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="wrap-inner">
+      <div class="brand">
+        <div class="logo">PG</div>
+        <div>
+          <h1 style="font-size:16px">Prakhar Gupta</h1>
+          <div class="muted" style="font-size:12px">Web Developer • B.Tech Student</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#todo" class="nav-link">To‑Do</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <button class="ghost" id="themeToggle" aria-pressed="false">Toggle Theme</button>
+        <a class="btn" href="#contact">Hire Me</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero">
+      <div class="intro card">
+        <h2>Hi — I'm Prakhar. I build polished, accessible interfaces for the web.</h2>
+        <p>I specialise in HTML, CSS and JavaScript. I focus on clean, maintainable code and responsive design that performs well on all devices.</p>
+
+        <div class="meta">
+          <div class="chip">Open to work</div>
+          <div class="chip">Location: India</div>
+          <div class="chip">B.Tech Student</div>
+        </div>
+
+        <div style="margin-top:16px">
+          <a class="ghost" href="#projects">View Projects</a>
+          <a class="btn cv right" href="#" style="margin-left:8px">Download CV</a>
+        </div>
+      </div>
+
+      <aside class="profile card" aria-label="Profile card">
+        <img class="avatar" src="https://picsum.photos/seed/neha/400/400" alt="Prakhar Gupta avatar">
+        <div style="font-weight:700">Prakhar Gupta</div>
+        <div class="muted" style="font-size:13px;margin-top:6px">Front‑end Developer</div>
+        <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
+          <a class="ghost" href="#contact">Contact</a>
+          <a class="ghost" href="#projects">Projects</a>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <h3 class="section-title">About Me</h3>
+      <p class="muted">I’m a web developer with hands-on experience building responsive websites and web apps. I enjoy turning complex problems into simple, beautiful interfaces. Below are selected projects and built-in utilities (To‑Do and Products) to demonstrate interactive features and state persistence.</p>
+
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div class="chip">HTML</div>
+        <div class="chip">CSS</div>
+        <div class="chip">JavaScript</div>
+        <div class="chip">Responsive Design</div>
+        <div class="chip">localStorage</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card">
+      <h3 class="section-title">Selected Projects</h3>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- JavaScript will populate projects for accessibility and maintainability -->
+      </div>
+    </section>
+
+    <!-- TODO -->
+    <section id="todo" class="card">
+      <h3 class="section-title">To‑Do App (persistent)</h3>
+      <div class="todo-wrap">
+        <div>
+          <div class="todo-controls">
+            <input id="taskInput" type="text" placeholder="Add new task" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+            <button class="small-btn btn" id="addTaskBtn">Add</button>
+          </div>
+          <ul class="task-list" id="taskList" aria-live="polite"></ul>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:8px">
+          <h4 style="margin-bottom:8px">Options</h4>
+          <button class="ghost" id="clearDone">Clear Completed</button>
+          <button class="ghost" id="clearAll" style="margin-left:8px">Clear All</button>
+          <p class="muted" style="margin-top:12px">Tasks are saved locally in your browser using localStorage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="card">
+      <h3 class="section-title">Product Listing</h3>
+      <div class="controls-row">
+        <input id="searchInput" type="text" placeholder="Search products..." style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-width:200px">
+        <select id="categoryFilter"><option value="all">All Categories</option></select>
+        <select id="sortSelect">
+          <option value="default">Sort By</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Rating: High → Low</option>
+        </select>
+        <div class="right muted" style="align-self:center">Found: <span id="count">0</span></div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h3 class="section-title">Contact</h3>
+      <form id="contactForm" aria-label="Contact form">
+        <div class="row">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+        </div>
+        <div style="margin-top:12px" class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+          <button class="btn" type="submit">Send Message</button>
+          <div id="formMsg" class="muted" aria-live="polite"></div>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <div class="muted">© <span id="year"></span> Prakhar Gupta — Built with HTML, CSS & JavaScript</div>
+    </footer>
+  </div>
+
+</body>
+</html>

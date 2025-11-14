@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Quiz & Joke Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>Interactive Quiz • Image Carousel • Joke Generator</header>
+
+  <div class="container">
+
+    <!-- Quiz Section -->
+    <div class="card">
+      <h2>Quiz</h2>
+      <div id="quizContainer"></div>
+      <button onclick="showScore()">Submit Quiz</button>
+      <p id="scoreDisplay"></p>
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="card carousel">
+      <h2>Image Carousel</h2>
+      <img id="carouselImg" src="https://picsum.photos/800/400?random=1" />
+      <div class="carousel-controls">
+        <button onclick="prevImage()">Prev</button>
+        <button onclick="nextImage()">Next</button>
+      </div>
+    </div>
+
+    <!-- Joke Section -->
+    <div class="card">
+      <h2>Need a Laugh?</h2>
+      <button onclick="getJoke()">Get a Random Joke</button>
+      <p class="joke" id="jokeDisplay">Click the button to load a joke!</p>
+    </div>
+  </div>
+
+ <script src="script.js"></script>
+</body>
+</html>
