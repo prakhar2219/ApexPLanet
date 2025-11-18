@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Store - Shop Now</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1>🛍️ ShopHub</h1>
+        </div>
+        <nav class="nav">
+          <a href="#home" class="nav-link active" data-section="home">Home</a>
+          <a href="#products" class="nav-link" data-section="products">Products</a>
+          <a href="#cart" class="nav-link" data-section="cart">
+            Cart <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Home Section -->
+    <section id="home" class="section active">
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h4>Trade-in-offer</h4>
+          <h2>Super value deals</h2>
+          <h1>On all products</h1>
+          <p>Save more with coupons & up to 40% off!</p>
+          <button class="btn btn-hero" onclick="showSection('products')">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="features-section">
+        <div class="container">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">🚚</div>
+              <h3>Free Shipping</h3>
+              <p>On orders over $100</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔄</div>
+              <h3>Easy Returns</h3>
+              <p>30-day return policy</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔒</div>
+              <h3>Secure Payment</h3>
+              <p>100% secure transactions</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💬</div>
+              <h3>24/7 Support</h3>
+              <p>Dedicated support team</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⭐</div>
+              <h3>Quality Products</h3>
+              <p>Premium quality guaranteed</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎁</div>
+              <h3>Special Offers</h3>
+              <p>Exclusive deals & discounts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Products Section -->
+      <div class="container">
+        <section class="featured-products">
+          <div class="section-title-center">
+            <h2>Featured Products</h2>
+            <p>Summer Collection New Modern Design</p>
+          </div>
+          <div class="featured-products-grid" id="featuredProductsGrid">
+            <!-- Featured products will be dynamically inserted here -->
+          </div>
+        </section>
+
+        <!-- Promotional Banner -->
+        <section class="promo-banner">
+          <div class="promo-content">
+            <h4>Repair Service</h4>
+            <h1>Up to <span class="discount-text">70% off</span> on All T-shirts & Accessories</h1>
+            <button class="btn btn-promo" onclick="showSection('products')">Explore Now</button>
+          </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="new-arrivals">
+          <div class="section-title-center">
+            <h2>New Arrivals</h2>
+            <p>Latest products just for you</p>
+          </div>
+          <div class="new-arrivals-grid" id="newArrivalsGrid">
+            <!-- New arrivals will be dynamically inserted here -->
+          </div>
+        </section>
+
+        <!-- Promotional Cards -->
+        <section class="promo-cards">
+          <div class="promo-card promo-card-1">
+            <h4>Crazy Deals</h4>
+            <h1>Buy 2 Get 1 Free</h1>
+            <p>The Best classic sale is on ShopHub</p>
+            <button class="btn btn-promo-card" onclick="showSection('products')">Learn More</button>
+          </div>
+          <div class="promo-card promo-card-2">
+            <h4>Spring Collection</h4>
+            <h1>New Season Sale</h1>
+            <p>Discover the latest trends</p>
+            <button class="btn btn-promo-card" onclick="showSection('products')">Shop Now</button>
+          </div>
+        </section>
+
+        <!-- Small Banners -->
+        <section class="small-banners">
+          <div class="small-banner banner-1">
+            <h2>Season Sale</h2>
+            <h4>Winter Sale 50% off</h4>
+          </div>
+          <div class="small-banner banner-2">
+            <h2>New Collection</h2>
+            <h4>Spring 2025 Arrivals</h4>
+          </div>
+          <div class="small-banner banner-3">
+            <h2>Special Offer</h2>
+            <h4>Limited Time Deals</h4>
+          </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+          <div class="newsletter-content">
+            <div class="newsletter-text">
+              <h2>Sign up for newsletters</h2>
+              <p>Get E-mail updates about our latest shop and <span>Special offers</span></p>
+            </div>
+            <div class="newsletter-form">
+              <input 
+                type="email" 
+                id="newsletterEmail" 
+                placeholder="Your email address"
+                class="newsletter-input"
+              >
+              <button class="btn btn-newsletter" onclick="handleNewsletter()">Sign Up</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Products</h2>
+          <div class="filter-controls">
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Search products..."
+              class="search-input"
+            >
+            <select id="categoryFilter" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="clothing">Clothing</option>
+              <option value="books">Books</option>
+              <option value="home">Home & Living</option>
+            </select>
+            <select id="sortSelect" class="filter-select">
+              <option value="default">Sort By</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid" id="productsGrid">
+          <!-- Products will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="section">
+      <div class="container">
+        <h2>Shopping Cart</h2>
+        <div class="cart-content">
+          <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+          <div class="cart-summary">
+            <div class="summary-card">
+              <h3>Order Summary</h3>
+              <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Tax (10%):</span>
+                <span id="tax">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping:</span>
+                <span id="shipping">$0.00</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+              </div>
+              <button class="btn btn-primary btn-block" id="checkoutBtn" onclick="showSection('checkout')">
+                Proceed to Checkout
+              </button>
+              <button class="btn btn-secondary btn-block" id="clearCartBtn">
+                Clear Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section id="checkout" class="section">
+      <div class="container">
+        <h2>Checkout</h2>
+        <div class="checkout-content">
+          <div class="checkout-form">
+            <form id="checkoutForm">
+              <h3>Shipping Information</h3>
+              <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="address">Address *</label>
+                <input type="text" id="address" name="address" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City *</label>
+                  <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                  <label for="zipCode">Zip Code *</label>
+                  <input type="text" id="zipCode" name="zipCode" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <input type="text" id="country" name="country" required>
+              </div>
+
+              <h3>Payment Information</h3>
+              <div class="form-group">
+                <label for="cardNumber">Card Number *</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiryDate">Expiry Date *</label>
+                  <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                </div>
+                <div class="form-group">
+                  <label for="cvv">CVV *</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+            </form>
+          </div>
+          <div class="checkout-summary">
+            <div class="summary-card">
+              <h3>Order Summary</h3>
+              <div id="checkoutItems"></div>
+              <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="checkoutSubtotal">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Tax (10%):</span>
+                <span id="checkoutTax">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping:</span>
+                <span id="checkoutShipping">$0.00</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total:</span>
+                <span id="checkoutTotal">$0.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Confirmation Section -->
+    <section id="orderConfirmation" class="section">
+      <div class="container">
+        <div class="confirmation-card">
+          <div class="confirmation-icon">✅</div>
+          <h2>Order Placed Successfully!</h2>
+          <p>Thank you for your purchase. Your order has been confirmed.</p>
+          <div class="order-details" id="orderDetails"></div>
+          <div class="confirmation-actions">
+            <button class="btn btn-primary" onclick="resetApp()">Continue Shopping</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modalProductDetails"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 ShopHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
